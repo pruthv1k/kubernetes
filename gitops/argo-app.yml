@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: web-terminal-installer-gitops-app
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: https://api.cluster-rlg9b.rlg9b.sandbox1738.opentlc.com:6443
+  source:
+    path: /gitops/terminal-operator
+    repoURL: https://github.com/pruthv1k/kubernetes.git
+    targetRevision: master
+  sources: []
+  project: web-terminal-installer-gitops-app
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+      - Replace=true
+
