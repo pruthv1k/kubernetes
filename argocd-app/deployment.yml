@@ -24,7 +24,7 @@ spec:
         deployment: pruthvi-sample-app
     spec:
       containers:
-      - image: quay.io/repository/openshifttest/deployment-example:latest
+      - image: quay.io/openshifttest/deployment-example:latest
         imagePullPolicy: Always
         name: pruthvi-sample-app
         ports:
