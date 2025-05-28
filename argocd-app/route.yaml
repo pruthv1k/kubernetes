@@ -2,7 +2,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: pruthvi-sample-app-route
-  namespace: openshift-ztpspec:
+  namespace: openshift-ztp
+spec:
   host: route-sophisticated-tarsier-openshift-ztp.apps.cbco.sandbox215.opentlc.com
   path: /
   to:
