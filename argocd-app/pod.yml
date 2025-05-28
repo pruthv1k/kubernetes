@@ -4,7 +4,7 @@ metadata:
   labels:
     run: nginx-pod
   name: nginx-pod
-  namespace: default
+  namespace: openshift-ztp
 spec:
   containers:
   - image: nginx
