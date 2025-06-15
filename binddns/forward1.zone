@@ -1,12 +1,12 @@
 ## Forward Zone Config For 3 controlplane and 3 worker nodes 
 $TTL 1W
-@       IN      SOA     bastion.ocp.pdlab.sg.   root (
+@       IN      SOA     bastion.ocp.lab.sg.   root (
                         2019070700      ; serial
                         3H              ; refresh (3 hours)
                         30M             ; retry (30 minutes)
                         2W              ; expiry (2 weeks)
                         1W )            ; minimum (1 week)
-        IN      NS      bastion.ocp.pdlab.sg.
+        IN      NS      bastion.ocp.lab.sg.
 bastion         IN      A       192.168.96.101
 ;
 api             IN      A       192.168.96.101
