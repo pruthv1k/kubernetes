@@ -1,0 +1,35 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  labels:
+    network: sno
+    networkType: static
+  name: sno
+  namespace: ocp2
+spec:
+  interfaces:
+    - name: eno1
+      macAddress: <provisioning_mac>
+  config:
+    dns-resolver:
+      config:
+        server:
+          - <dns-server-ip>
+    interfaces:
+    - name: eno1
+      type: ethernet
+      state: up
+      ipv4:
+        enabled: true
+        dhcp: false
+        address:
+        - ip: <provisioning_ip>
+          prefix-length: 16
+      ipv6:
+        enabled: false
+    routes:
+      config:
+      - destination: 0.0.0.0/0
+        next-hop-address: <gateway_ip>
+        next-hop-interface: eno1
+        table-id: 254
