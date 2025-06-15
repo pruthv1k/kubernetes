@@ -1,13 +1,13 @@
 ## BindDNS Reverse Zone Config - Single Node Openshift
 $TTL 1W
-@       IN      SOA     bastion.ocp.pdlab.sg. root (
+@       IN      SOA     bastion.ocp.lab.sg. root (
                         2025061501 ; serial
                         3H
                         30M
                         2W
                         1W )
-        IN      NS      bastion.ocp.pdlab.sg.
+        IN      NS      bastion.ocp.lab.sg.
 
-6     IN  PTR sno.ocp2.pdlab.sg.
-6     IN  PTR api.ocp2.pdlab.sg.
-6     IN  PTR api-int.ocp2.pdlab.sg.
+6     IN  PTR sno.ocp2.lab.sg.
+6     IN  PTR api.ocp2.lab.sg.
+6     IN  PTR api-int.ocp2.lab.sg.
