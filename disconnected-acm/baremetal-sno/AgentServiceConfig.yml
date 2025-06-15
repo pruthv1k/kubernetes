@@ -1,0 +1,38 @@
+## File creates CR to load Red Hat CoreOS Image(s) from external source to OCP Internal Registry
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: AgentServiceConfig
+metadata:
+  finalizers:
+  - agentserviceconfig.agent-install.openshift.io/ai-deprovision
+  - agentserviceconfig.agent-install.openshift.io/local-cluster-import-deprovision
+  generation: 1
+  name: agent
+spec:
+  databaseStorage:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 10Gi
+    storageClassName: vmdisk-worker2
+  filesystemStorage:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 50Gi
+    storageClassName: vmdisk-worker2
+  imageStorage:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 20Gi
+    storageClassName: vmdisk-worker2
+  osImages:
+  - cpuArchitecture: x86_64
+    openshiftVersion: "4.17"
+    rootFSUrl: http://bastion.ocp.lab.sg:8080/rhcos/rhcos-4.17.17-x86_64-live-rootfs.x86_64.img
+    url: http://bastion.ocp.lab.sg:8080/rhcos/rhcos-4.17.17-x86_64-live.x86_64.iso
+    version: 4.17.17
