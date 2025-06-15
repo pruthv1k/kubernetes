@@ -1,0 +1,22 @@
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  annotations:
+    bmac.agent-install.openshift.io/hostname: <FQDN>
+    inspect.metal3.io: disabled
+  creationTimestamp: "2025-06-10T08:57:56Z"
+  finalizers:
+  - baremetalhost.metal3.io
+  - bmac.agent-install.openshift.io/deprovision
+  labels:
+    infraenvs.agent-install.openshift.io: ocp2
+  name: sno
+  namespace: ocp2
+spec:
+  automatedCleaningMode: disabled
+  bmc:
+    address: redfish-virtualmedia://<BMC_IP/redfish/v1/Systems/System.Embedded.1
+    credentialsName: bmc-secret
+    disableCertificateVerification: true
+  bootMACAddress: <BootNICMacAddress>
+  online: true
