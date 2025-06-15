@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: assisted-service-configmap
+  namespace: multicluster-engine
+data: 
+  ALLOW_CONVERGED_FLOW: "false"
