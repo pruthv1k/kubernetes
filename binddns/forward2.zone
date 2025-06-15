@@ -1,0 +1,15 @@
+## BindDNS Forward Zone Config --> Single Node Openshift
+
+$TTL 1W
+@       IN      SOA     bastion.ocp.lab.sg. root (
+                        2025061501 ; serial
+                        3H
+                        30M
+                        2W
+                        1W )
+        IN      NS      bastion.ocp.lab.sg.
+
+sno         IN  A   192.168.92.6
+api         IN  A   192.168.92.6
+api-int     IN  A   192.168.92.6
+*.apps      IN  A   192.168.92.6
