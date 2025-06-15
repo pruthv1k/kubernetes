@@ -1,0 +1,11 @@
+apiVersion: mirror.openshift.io/v2alpha1
+kind: ImageSetConfiguration
+mirror:
+  platform:
+    architectures:
+    - amd64
+    channels:
+      - name: stable-4.17
+        minVersion: 4.17.17
+        maxVersion: 4.17.17
+    graph: true
