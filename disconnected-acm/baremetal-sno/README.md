@@ -1,6 +1,6 @@
 
 ## If, Manually Adding a BareMetalHost to RHACM Inventory
-
+0. AgentServiceConfig 
 1. NetworkManagementState Configuration
 2. Registry Pull Secret
 3. BareMetalHost secret
