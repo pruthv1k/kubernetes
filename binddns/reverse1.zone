@@ -1,0 +1,23 @@
+## DNS Reverse Zone Config - 3 control plane, 3 worker nodes
+$TTL 1W
+@       IN      SOA     bastion.ocp.pdlab.sg.   root (
+                        2019070700      ; serial
+                        3H              ; refresh (3 hours)
+                        30M             ; retry (30 minutes)
+                        2W              ; expiry (2 weeks)
+                        1W )            ; minimum (1 week)
+                IN      NS      bastion.ocp.pdlab.sg.
+;
+101             IN      PTR     api.ocp.pdlab.sg.
+101             IN      PTR     api-int.ocp.pdlab.sg. 
+;
+102             IN      PTR     bootstrap.ocp.pdlab.sg. 
+;
+111             IN      PTR     master1.ocp.pdlab.sg. 
+112             IN      PTR     master2.ocp.pdlab.sg. 
+113             IN      PTR     master3.ocp.pdlab.sg. 
+;
+114             IN      PTR     worker1.ocp.pdlab.sg.
+115             IN      PTR     worker2.ocp.pdlab.sg.
+116             IN      PTR     worker3.ocp.pdlab.sg.
+;
