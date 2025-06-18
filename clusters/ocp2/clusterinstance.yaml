@@ -1,0 +1,68 @@
+apiVersion: siteconfig.open-cluster-management.io/v1alpha1
+kind: ClusterInstance
+metadata:
+  name: ocp2
+  namespace: ocp2
+spec:
+  cpuPartitioningMode: None
+  clusterName: ocp2
+  clusterImageSetNameRef: openshift-v4.17.17
+  machineNetwork:
+    - cidr: 192.168.0.0/16
+  networkType: OVNKubernetes
+  sshPublicKey: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM/BwMyzPdTge9IxOxB0XCOv/vim2ByNOG53gLDZdGki root@bastion.ocp.pdlab.sg
+  nodes:
+    - automatedCleaningMode: disabled
+      nodeNetwork:
+        config:
+          dns-resolver:
+            config:
+              server:
+                - 192.168.96.101
+          interfaces:
+            - ipv4:
+                dhcp: false
+                enabled: true
+                address:
+                  - ip: 192.168.92.6
+                    prefix-length: 16
+              name: eno1
+            - ipv4:
+                enabled: false
+              ipv6:
+                enabled: false
+              name: eno2
+            - ipv4:
+                enabled: false
+              ipv6:
+                enabled: false
+              name: eno3
+            - ipv4:
+                enabled: false
+              ipv6:
+                enabled: false
+              name: eno4
+          routes:
+            config:
+              - destination: 0.0.0.0/0
+                next-hop-address: 192.168.10.1
+                next-hop-interface: eno1
+        interfaces:
+          - macAddress: '18:66:DA:ED:24:4C'
+            name: eno1
+      bmcCredentialsName:
+        name: bmc-secret
+      hostName: sno.ocp2.pdlab.sg
+      bootMode: UEFI
+      role: master
+      bootMACAddress: '18:66:DA:ED:24:4C'
+      templateRefs:
+        - name: ai-node-templates-v1
+          namespace: open-cluster-management
+      bmcAddress: redfish-virtualmedia://192.168.91.6/redfish/v1/Systems/System.Embedded.1
+  baseDomain: pdlab.sg
+  templateRefs:
+    - name: ai-cluster-templates-v1
+      namespace: open-cluster-management
+  pullSecretRef:
+    name: pullsecret
