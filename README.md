@@ -1,4 +1,4 @@
-# Kubernetes - Features Test and Implementation Notes
+# Red Hat OpenShift Container Platform ZTP SNO Deployment using Advanced Cluster Management
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg) ![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
 
